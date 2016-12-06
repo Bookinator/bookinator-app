@@ -1,8 +1,6 @@
 var express = require('express')
 var router = express.Router()
 
-var bodyParser = require('body-parser')
-
 router.get("/:serialId", (req, res) => {
 	// TODO GET SERIAL
 	// should return a json that contains the serial
@@ -23,3 +21,5 @@ router.delete("/:serialId", (req, res) => {
 	// should return an empty json if delete is successfull,
 	// a json that contains the serial in other cases
 })
+
+module.exports = router

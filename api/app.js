@@ -1,21 +1,23 @@
-var express = require('express');
-var mongoose = require('mongoose');
-var app = express();
+var express = require('express')
+var mongoose = require('mongoose')
+var config = require('./config')
 
-var bodyParser = require('body-parser');
-app.use(bodyParser.json()); // support json encoded bodies
-app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+var app = express()
 
-var user = require('./routes/user');
-app.use("/user", user);
+mongoose.connect('mongodb://'+ config.host + '/' + config.db, (err) => {
+  if (err) { throw err }
+})
 
-var book = require('./routes/book');
-app.use("/book", book);
+var user = require('./routes/user')
+app.use("/user", user)
 
-var type = require('./routes/type');
-app.use("/type", type);
+var book = require('./routes/book')
+app.use("/book", book)
 
-var serial = require('./routes/serial');
-app.use("/serial", serial);
+var type = require('./routes/type')
+app.use("/type", type)
+
+var serial = require('./routes/serial')
+app.use("/serial", serial)
 
 app.listen('3300')
