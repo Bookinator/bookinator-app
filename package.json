@@ -1,0 +1,20 @@
+{
+  "name": "Bookinator",
+  "version": "1.0.0",
+  "description": "Express ex",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "API",
+    "books"
+  ],
+  "author": "Maxime Bressange, Benjamin Clay, Daniel Gonçalves",
+  "license": "BSD"
+}
