@@ -1,11 +1,40 @@
-<form (ngSubmit)="logForm()">
-  <ion-item>
-    <ion-label>Username</ion-label>
-    <ion-input type="text" [(ngModel)]="login.username" name="username"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>Password</ion-label>
-    <ion-textarea [(ngModel)]="login.password" name="password"></ion-textarea>
-  </ion-item>
-  <button ion-button type="submit">Submit</button>
-</form>
+<ion-header>
+  <ion-navbar>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <!-- <form (ngSubmit)="logForm()">
+    <ion-item>
+      <ion-label>Username</ion-label>
+      <ion-input type="text" [(ngModel)]="login.username" name="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="login.password" name="password"></ion-input>
+    </ion-item>
+    <button ion-button full type="submit">Se connecter</button>
+  </form> -->
+  <form [formGroup]="loginForm">
+
+        <ion-item>
+            <ion-label floating>Username</ion-label>
+            <ion-input formControlName="username" type="text" [class.invalid]="!loginForm.controls.username.valid && (loginForm.controls.username.dirty || submitAttempt)"></ion-input>
+        </ion-item>
+
+        <ion-label *ngIf="!loginForm.controls.username.valid && (loginForm.controls.username.dirty || submitAttempt)">
+            <p>Veuillez entrer un username valide</p>
+        </ion-label>
+
+        <ion-item>
+            <ion-label floating>Password</ion-label>
+            <ion-input formControlName="password" type="password" [class.invalid]="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || submitAttempt)"></ion-input>
+        </ion-item>
+
+        <ion-label *ngIf="!loginForm.controls.password.valid && (loginForm.controls.password.dirty || submitAttempt)">
+            <p>Veuillez entrer un mot de passe valide</p>
+        </ion-label>
+
+    </form>
+    <button ion-button full color="primary" (click)="save()">Se connecter</button>
+</ion-content>

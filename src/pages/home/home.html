@@ -1,17 +1,62 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Library</ion-title>
   </ion-navbar>
 </ion-header>
+<ion-content>
+  <ion-segment [(ngModel)]="book" style="padding:10px">
+    <ion-segment-button value="all">
+      Tous
+    </ion-segment-button>
+    <ion-segment-button value="author">
+      Auteur
+    </ion-segment-button>
+    <ion-segment-button value="serial">
+      Série
+    </ion-segment-button>
+    <ion-segment-button value="genre">
+      Genre
+    </ion-segment-button>
+  </ion-segment>
 
-<ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <div [ngSwitch]="book">
+    <ion-list *ngSwitchCase="'all'">
+      <ion-item-group>
+        <button class="item item-block item-ios" ion-item *ngFor="let book of books" (click)="bookSelected(book)">
+            <div class="input-wrapper">
+              {{ book }}
+            </div>
+        </button>
+      </ion-item-group>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'author'">
+      <ion-item-group>
+        <ion-item-divider color="light">J.K Rowling</ion-item-divider>
+        <ion-item>Harry Potter et le prisonnier d'azkaban</ion-item>
+        <ion-item-divider color="light">J.R.R Tolkien</ion-item-divider>
+        <ion-item>La communauté de l'anneau</ion-item>
+        <ion-item>Les deux tours</ion-item>
+      </ion-item-group>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'serial'">
+      <ion-item-group>
+        <ion-item-divider color="light">Harry Potter</ion-item-divider>
+        <ion-item>Harry Potter et le prisonnier d'azkaban</ion-item>
+        <ion-item-divider color="light">Le seigneur des anneaux</ion-item-divider>
+        <ion-item>La communauté de l'anneau</ion-item>
+        <ion-item>Les deux tours</ion-item>
+      </ion-item-group>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'genre'">
+      <ion-item-group>
+        <ion-item-divider color="light">Fantasy</ion-item-divider>
+        <ion-item>Harry Potter et le prisonnier d'azkaban</ion-item>
+        <ion-item>La communauté de l'anneau</ion-item>
+        <ion-item>Les deux tours</ion-item>
+      </ion-item-group>
+    </ion-list>
+  </div>
 </ion-content>
