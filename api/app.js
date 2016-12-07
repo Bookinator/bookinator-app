@@ -1,12 +1,23 @@
 var express = require('express')
 var mongoose = require('mongoose')
 var config = require('./config')
+var bodyParser = require('body-parser')
+var expressJwt = require('express-jwt')
 
 var app = express()
 
 mongoose.connect('mongodb://'+ config.host + '/' + config.db, (err) => {
   if (err) { throw err }
 })
+
+app.use(bodyParser.json()) // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })) // support encoded bodies
+
+// use expressJwt
+app.use(expressJwt({ secret: config.jwtSecret }).unless({ path: [ '/login' ]}))
+
+var login = require('./routes/login')
+app.use("/login", login)
 
 var user = require('./routes/user')
 app.use("/user", user)

@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
 
-router.get("/:userId", (req, res) => {
+router.get("/", (req, res) => {
 	// TODO GET USER
 	// should return a json that contains the user
 })
