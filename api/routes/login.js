@@ -8,7 +8,7 @@ var config = require('../config')
 router.post("/", (req, res) => {
 	var sha256 = createHash('sha256')
 	var encryptedPasswd = sha256.update(req.body.password, 'utf8').digest('hex')
-	res.end(encryptedPasswd)
+	
 	query = userModel.find(null)
 	query.where('mail', req.body.mail)
 	query.where('password', encryptedPasswd)
