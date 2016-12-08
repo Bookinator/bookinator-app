@@ -7,7 +7,9 @@ import { StorePage } from '../pages/store/store';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { BookPage } from '../pages/book/book';
+import { ScanResultPage } from '../pages/scan-result/scan-result';
 import { LoginService } from '../providers/login-service';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { LoginService } from '../providers/login-service';
     HomePage,
     TabsPage,
     LoginPage,
-    BookPage
+    BookPage,
+    ScanResultPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -30,7 +33,8 @@ import { LoginService } from '../providers/login-service';
     HomePage,
     TabsPage,
     LoginPage,
-    BookPage
+    BookPage,
+    ScanResultPage
   ],
   providers: [
     {provide: ErrorHandler, useClass: IonicErrorHandler},

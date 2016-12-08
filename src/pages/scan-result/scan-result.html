@@ -1,0 +1,26 @@
+<ion-header>
+	<ion-navbar *navbar>
+ 		<ion-title>Result</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="Scan-result">
+  <ion-row>
+    <ion-col width-100>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col width-100>
+      <h2 class="Scan-resultUser">{{scannedText}}</h2>
+		<script>
+	      function (result) {
+	          alert("We got a barcode\n" +
+	                "Result: " + result.text + "\n" +
+	                "Format: " + result.format + "\n" +
+	                "Cancelled: " + result.cancelled);
+	    }
+	    </script>
+    </ion-col>
+  </ion-row>
+</ion-content>
+
