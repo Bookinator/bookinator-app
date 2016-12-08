@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 /*
@@ -12,7 +12,9 @@ import 'rxjs/add/operator/map';
 export class LoginService {
 
   constructor(public http: Http) {
+    this.http = http;
+  }
+  check() {
     console.log('Hello LoginService Provider');
   }
-
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-
+import { LoginService } from '../providers/login-service';
 import { LoginPage } from '../pages/login/login';
 
 
